@@ -31,3 +31,10 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  min-width: 10rem;
+  max-width: 60rem;
+  margin-right: auto;
+  margin-left: auto;
+}
