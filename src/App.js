@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+import ReactLearn from "./pages/React_Learn";
+import Countries from "./pages/Countries";
 import './App.css';
+
 const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io"
+  // uri: "https://48p1r2roz4.sse.codesandbox.io"
+  uri: "https://ci-graphql.dev/graphql"
 });
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <ApolloProvider client={ client }>
+        <div className="App">
+          <ReactLearn />
+
+          <div className="App-header">
+            <p>Country Infos: </p>
+            <Countries />
+          </div>
+
+        </div>
+      </ApolloProvider>
     );
   }
 }
